@@ -1,7 +1,7 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/forecast/v1.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "item",
@@ -40,13 +40,13 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
+    "forecast:new_field": "test",
+    "forecast:xyz": {
       "x": 1,
       "y": 2,
       "z": 3
     },
-    "template:another_one": [
+    "forecast:another_one": [
       1,
       2,
       3
@@ -61,7 +61,7 @@
   "assets": {
     "data": {
       "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+      "forecast:new_field": "test"
     }
   }
 }

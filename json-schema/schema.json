@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/forecast/v1.0.0/schema.json#",
   "title": "Template Extension",
   "description": "STAC Template Extension for STAC Items and STAC Collections.",
   "oneOf": [
@@ -26,7 +26,7 @@
                 {
                   "$comment": "Require fields here for Item Properties.",
                   "required": [
-                    "template:new_field"
+                    "forecast:new_field"
                   ]
                 },
                 {
@@ -70,7 +70,7 @@
             {
               "$comment": "Require fields here for Collections (top-level).",
               "required": [
-                "template:new_field"
+                "forecast:new_field"
               ]
             },
             {
@@ -152,7 +152,7 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/forecast/v1.0.0/schema.json"
           }
         }
       }
@@ -160,19 +160,19 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
+        {"required": ["forecast:new_field"]},
+        {"required": ["forecast:xyz"]},
+        {"required": ["forecast:another_one"]}
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
+        "forecast:new_field": {
           "type": "string"
         },
-        "template:xyz": {
+        "forecast:xyz": {
           "type": "object",
           "required": [
             "x",
@@ -191,7 +191,7 @@
             }
           }
         },
-        "template:another_one": {
+        "forecast:another_one": {
           "type": "array",
           "items": {
             "type": "number"
@@ -199,7 +199,7 @@
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
+        "^(?!forecast:)": {
           "$comment": "Above, change `template` to the prefix of this extension"
         }
       },

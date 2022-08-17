@@ -1,53 +1,54 @@
-# Template Extension Specification
+# Forecast Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** Forecast
+- **Identifier:** <https://stac-extensions.github.io/forecast/v1.0.0/schema.json>
+- **Field Name Prefix:** forecast
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @m-mohr
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document explains the Forecast Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
-- [JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
+  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item (todo)
+  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection (todo)
+- [JSON Schema](json-schema/schema.json) (todo)
+- [Changelog](./CHANGELOG.md) (todo)
 
-## Item Properties and Collection Fields
+## Fields
 
-| Field Name           | Type                      | Description |
-| -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
+The fields in the table below can be used in these parts of STAC documents:
+- [ ] Catalogs
+- [x] Collections
+- [x] Item Properties (incl. Summaries in Collections)
+- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [ ] Links
 
-### Additional Field Information
+| Field Name        | Type   | Description |
+| ----------------- | ------ | ----------- |
+| forecast:datetime | string | The forecast datetime, which must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| forecast:step     | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
 
-#### template:new_field
+One of the fields `forecast:datetime` or `forecast:step` is **REQUIRED**!
 
-This is a much more detailed description of the field `template:new_field`...
+### Additional Fields from other extensions
 
-### XYZ Object
+| Field Name        | Type   | Description |
+| ----------------- | ------ | ----------- |
+| datetime          | string | **REQUIRED.** The reference datetime. It follows the definition in the [STAC Common Metdata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#date-and-time). Alternatively, `start_datetime` and `end_datetime` can also be used. |
+| expires           | string | The datetime until the forecast is valid, which often is the same as the forecast datetime. It follows the definition in the [Timestamps Extension](https://github.com/stac-extensions/timestamps#item-properties-fields). |
+| deprecated        | string | Set this to `true` if a newer version of the forecast is available. It follows the definition in the [Version Extension](https://github.com/stac-extensions/timestamps#item-properties-fields). |
 
-This is the introduction for the purpose and the content of the XYZ Object...
+It is also recommended to implement the [Version Extension](https://github.com/stac-extensions/version)
+and use it to "deprecate" old forecasts and link between them using the given
+[relation types](https://github.com/stac-extensions/version#relation-types).
 
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
+## Media Types
 
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| Type                    | Description |
+| ----------------------- | ----------- |
+| `application/wmo-GRIB2` | GRIB2 file (usually with the file extension `.grb2` or `.grib2`) |
+| `application/netcdf`    | NetCDF file (usually with the file extension `.nc`) |
 
 ## Contributing
 
