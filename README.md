@@ -45,6 +45,8 @@ and use it to "deprecate" old forecasts and link between them using the given
 
 ## Media Types
 
+You can use any file format, but here is a list of common media types for forecast assets that have not been listed yet in the list of [common media types in STAC](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac):
+
 | Type                    | Description |
 | ----------------------- | ----------- |
 | `application/wmo-GRIB2` | GRIB2 file (usually with the file extension `.grb2` or `.grib2`) |
