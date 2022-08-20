@@ -41,7 +41,7 @@ One of the fields `forecast:datetime` or `forecast:step` is **REQUIRED**!
 | deprecated        | string | Set this to `true` if a newer version of the forecast is available. It follows the definition in the [Version Extension](https://github.com/stac-extensions/timestamps#item-properties-fields). |
 
 It is also recommended to implement the [Version Extension](https://github.com/stac-extensions/version)
-and use it to "deprecate" old forecasts and link between them using the given
+and use it to "deprecate" old forecasts and link between forecasts with the same forecast datetime using the given
 [relation types](https://github.com/stac-extensions/version#relation-types).
 
 ## Media Types
