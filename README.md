@@ -30,7 +30,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | forecast:horizon             | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
 | forecast:accumulation_period | string | If the forecast is not only for a specific instance in time but instead is for an accumulation over a certain period you can specify the length here.Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `P0TS` (0 seconds). |
 
-One of the fields `forecast:datetime` or `forecast:step` is **REQUIRED**!
+One of the fields `forecast:datetime` or `forecast:horizon` is **REQUIRED**!
 
 ### Additional Fields from other extensions
 
