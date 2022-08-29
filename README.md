@@ -8,6 +8,8 @@
 - **Owner**: @m-mohr
 
 This document explains the Forecast Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+It defines some high-level fields to get a basic understanding of **weather** forecast data.
+Some fields may also be applicable for climate forecast data, but it hasn't been written specifically for that domain.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item (todo)
