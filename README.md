@@ -12,8 +12,9 @@ It defines some high-level fields to get a basic understanding of **weather** fo
 Some fields may also be applicable for climate forecast data, but it hasn't been written specifically for that domain.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item (todo)
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection (todo)
+  - [Item example for an specific time](examples/item.json): An example STAC Item for a forecast covering a specific instance in time (todo)
+  - [Item example for a period](examples/item-period.json): An example STAC Item for a forecast covering a period of time (todo)
+  - [Collection example](examples/collection.json): Shows the usage of the extension in a STAC Collection (todo)
 - [JSON Schema](json-schema/schema.json) (todo)
 - [Changelog](./CHANGELOG.md) (todo)
 
@@ -28,19 +29,20 @@ The fields in the table below can be used in these parts of STAC documents:
 
 | Field Name                   | Type   | Description |
 | ---------------------------- | ------ | ----------- |
-| forecast:datetime            | string | The forecast datetime, which must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
-| forecast:horizon             | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
-| forecast:accumulation_period | string | If the forecast is not only for a specific instance in time but instead is for an accumulation over a certain period you can specify the length here.Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `P0TS` (0 seconds). |
-
-One of the fields `forecast:datetime` or `forecast:horizon` is **REQUIRED**!
+| forecast:reference_datetime  | string | **REQUIRED.** The *reference* datetime, which must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| forecast:horizon             | string | **REQUIRED.** The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
+| forecast:accumulation_period | string | If the forecast is not only for a specific instance in time but instead is for a certain period, you can specify the length here. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `PT0S` (0 seconds). |
 
 ### Additional Fields from other extensions
 
 | Field Name        | Type   | Description |
 | ----------------- | ------ | ----------- |
-| datetime          | string | **REQUIRED.** The reference datetime. It follows the definition in the [STAC Common Metdata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#date-and-time). Alternatively, `start_datetime` and `end_datetime` can also be used. |
+| datetime          | string | **REQUIRED.** The forecast datetime. It follows the definition in the [STAC Common Metdata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#date-and-time). If the forecast is not only for a specific instance in time but instead is for a certain period, you should use `start_datetime` and `end_datetime` and set `datetime` to `null`. |
+| start_datetime / end_datetime | string | The forecast start and end datetime. It follows the definition in the [STAC Common Metdata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#date-and-time). Only use these fields if the forecast is for a period (and as such `forecast:accumulation_period` is not `PT0S`). |
 | expires           | string | The datetime until the forecast is valid or gets superseded by a new forecast. It follows the definition in the [Timestamps Extension](https://github.com/stac-extensions/timestamps#item-properties-fields). |
 | deprecated        | string | Set this to `true` if a newer version of the forecast is available. It follows the definition in the [Version Extension](https://github.com/stac-extensions/timestamps#item-properties-fields). |
+
+**Note:** The fields mentioned above don't use the `forecast:` prefix!
 
 It is also recommended to implement the [Version Extension](https://github.com/stac-extensions/version)
 and use it to "deprecate" old forecasts and link between them using the given
