@@ -45,7 +45,7 @@ The fields in the table below can be used in these parts of STAC documents:
 **Note:** The fields mentioned above don't use the `forecast:` prefix!
 
 It is also recommended to implement the [Version Extension](https://github.com/stac-extensions/version)
-and use it to "deprecate" old forecasts and link between them using the given
+and use it to "deprecate" old forecasts and link between forecasts with the same forecast datetime using the given
 [relation types](https://github.com/stac-extensions/version#relation-types).
 
 ## Media Types
