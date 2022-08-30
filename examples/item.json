@@ -1,67 +1,497 @@
 {
-  "stac_version": "1.0.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v1.0.0/schema.json"
-  ],
   "type": "Feature",
-  "id": "item",
-  "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
-  ],
+  "stac_version": "1.0.0",
+  "id": "1660262400-gefs.chem.t00z.a2d_0p25.f000",
+  "properties": {
+    "expires": "2022-08-12T00:00:00Z",
+    "grib:discipline": "meteorological",
+    "forecast:reference_datetime": "2022-08-12T00:00:00Z",
+    "forecast:horizon": "PT0H",
+    "processing:facility": "US-NCEP",
+    "proj:epsg": null,
+    "proj:projjson": {
+      "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
+      "type": "GeographicCRS",
+      "name": "Coordinate System imported from GRIB file",
+      "datum": {
+        "type": "GeodeticReferenceFrame",
+        "name": "unnamed",
+        "ellipsoid": {
+          "name": "Sphere",
+          "radius": 6371229
+        }
+      },
+      "coordinate_system": {
+        "subtype": "ellipsoidal",
+        "axis": [
+          {
+            "name": "Latitude",
+            "abbreviation": "lat",
+            "direction": "north",
+            "unit": "degree"
+          },
+          {
+            "name": "Longitude",
+            "abbreviation": "lon",
+            "direction": "east",
+            "unit": "degree"
+          }
+        ]
+      }
+    },
+    "proj:shape": [
+      1440,
+      721
+    ],
+    "proj:transform": [
+      0.25,
+      0,
+      -180.125,
+      0,
+      -0.25,
+      90.125
+    ],
+    "datetime": "2022-08-12T00:00:00Z"
+  },
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          172.9,
-          1.3
+          -180.125,
+          -90.125
         ],
         [
-          173,
-          1.3
+          179.875,
+          -90.125
         ],
         [
-          173,
-          1.4
+          179.875,
+          90.125
         ],
         [
-          172.9,
-          1.4
+          -180.125,
+          90.125
         ],
         [
-          172.9,
-          1.3
+          -180.125,
+          -90.125
         ]
       ]
     ]
   },
-  "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "forecast:new_field": "test",
-    "forecast:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
-    },
-    "forecast:another_one": [
-      1,
-      2,
-      3
-    ]
-  },
   "links": [
     {
-      "href": "https://example.com/examples/item.json",
-      "rel": "self"
+      "rel": "collection",
+      "href": "collection.json",
+      "type": "application/json",
+      "title": "NOAA Global Ensemble Forecast System (GEFS)"
     }
   ],
   "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "forecast:new_field": "test"
+    "grib2": {
+      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "GRIB2 file",
+      "description": "The forecast data. Subsets of the data can be loaded using information from the associated index file.",
+      "raster:bands": [
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0061231516301632,
+            "maximum": 29.00252532959,
+            "mean": 0.16919819447534,
+            "stddev": 0.3764434353083
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.64043462276459,
+            "maximum": 0.84214621782303,
+            "mean": 0.76601473219048,
+            "stddev": 0.036238526175545
+          },
+          "description": "Asymmetry Factor",
+          "grib:element": "asysfk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.74945330619812,
+            "maximum": 0.99926424026489,
+            "mean": 0.94882971866408,
+            "stddev": 0.03411827900738
+          },
+          "description": "Single Scattering Albedo",
+          "grib:element": "ssalbk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0043960274197161,
+            "maximum": 20.069881439209,
+            "mean": 0.14160790555694,
+            "stddev": 0.28359911907921
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0027195760048926,
+            "maximum": 12.060523986816,
+            "mean": 0.11106313425042,
+            "stddev": 0.19478975993829
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0023061106912792,
+            "maximum": 10.419253349304,
+            "mean": 0.10488103820814,
+            "stddev": 0.17622332473456
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0000031616805244994,
+            "maximum": 3.1155025959015,
+            "mean": 0.008855822054689,
+            "stddev": 0.053499185481957
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0000030212595447665,
+            "maximum": 2.8461494445801,
+            "mean": 0.0081680120525493,
+            "stddev": 0.049103679640117
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0000013180878113417,
+            "maximum": 1.0072281360626,
+            "mean": 0.04030248834866,
+            "stddev": 0.056431185533878
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0000013180878113417,
+            "maximum": 1.0072281360626,
+            "mean": 0.04030248834866,
+            "stddev": 0.056431185533878
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00060580234276131,
+            "maximum": 4.025007724762,
+            "mean": 0.020819146128007,
+            "stddev": 0.055893246719568
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00060580234276131,
+            "maximum": 4.025007724762,
+            "mean": 0.020819146128007,
+            "stddev": 0.055893246719568
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00052909186342731,
+            "maximum": 10.38880443573,
+            "mean": 0.034657705831735,
+            "stddev": 0.12668759764327
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00051318010082468,
+            "maximum": 10.030592918396,
+            "mean": 0.034007718824436,
+            "stddev": 0.12402715920299
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00014269040548243,
+            "maximum": 1.6327264308929,
+            "mean": 0.006424343336384,
+            "stddev": 0.023662662901252
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.000034597389458213,
+            "maximum": 0.34983298182487,
+            "mean": 0.0015795669489139,
+            "stddev": 0.0054900974371096
+          },
+          "description": "Scattering Aerosol Optical Thickness",
+          "grib:element": "sctaotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0020731242839247,
+            "maximum": 9.0323190689087,
+            "mean": 0.097953657308747,
+            "stddev": 0.16041500636699
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.0011907988227904,
+            "maximum": 4.9453902244568,
+            "mean": 0.078425688122925,
+            "stddev": 0.11565155095503
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00030365923885256,
+            "maximum": 2.2889845371246,
+            "mean": 0.05313892097441,
+            "stddev": 0.071845546939689
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00007992128666956,
+            "maximum": 0.78618425130844,
+            "mean": 0.016158330569383,
+            "stddev": 0.023989501072855
+          },
+          "description": "Atmosphere Optical Thickness",
+          "grib:element": "aotk",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 1.3996381831305e-8,
+            "maximum": 309.77227783203,
+            "mean": 0.41038999470455,
+            "stddev": 4.0030611393966
+          },
+          "description": "Particulate matter (fine)",
+          "unit": "10^-6g/m^3",
+          "grib:element": "pmtf",
+          "grib:short_name": "0-SFC"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 4.6261600772368e-8,
+            "maximum": 57.208011627197,
+            "mean": 3.1927213114378,
+            "stddev": 4.2616933493912
+          },
+          "description": "Particulate matter (fine)",
+          "unit": "10^-6g/m^3",
+          "grib:element": "pmtf",
+          "grib:short_name": "0-SFC"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00021699354692828,
+            "maximum": 13193.625,
+            "mean": 22.910594069461,
+            "stddev": 41.772567854659
+          },
+          "description": "Particulate matter (coarse)",
+          "unit": "10^-6g/m^3",
+          "grib:element": "pmtc",
+          "grib:short_name": "0-SFC"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 0.00017043380648829,
+            "maximum": 13191.577148438,
+            "mean": 5.7616627017781,
+            "stddev": 27.126657158214
+          },
+          "description": "Particulate matter (fine)",
+          "unit": "10^-6g/m^3",
+          "grib:element": "pmtf",
+          "grib:short_name": "0-SFC"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 5.4072143029771e-7,
+            "maximum": 0.0025077844038606,
+            "mean": 0.000021760580395887,
+            "stddev": 0.000048162056013382
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 3.7170894984229e-7,
+            "maximum": 0.001863478217274,
+            "mean": 0.0000093149012037263,
+            "stddev": 0.000020545495128855
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 7.861409301313e-10,
+            "maximum": 0.00054902862757444,
+            "mean": 0.000001712380465595,
+            "stddev": 0.0000098742292093661
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 2.2129525989456e-10,
+            "maximum": 0.000041638519178377,
+            "mean": 0.0000023144710131757,
+            "stddev": 0.0000026636810432403
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 6.5196523735267e-9,
+            "maximum": 0.0000842632871354,
+            "mean": 3.0601876239339e-7,
+            "stddev": 0.0000011748606985804
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        },
+        {
+          "data_type": "float64",
+          "statistics": {
+            "minimum": 6.0665072965094e-8,
+            "maximum": 0.0017742430791259,
+            "mean": 0.0000031750432594164,
+            "stddev": 0.000014052866691345
+          },
+          "description": "Column-Integrated Mass Density",
+          "unit": "kg/(m^2)",
+          "grib:element": "colmd",
+          "grib:short_name": "0-EATM"
+        }
+      ],
+      "roles": [
+        "data",
+        "source"
+      ]
+    },
+    "index": {
+      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2.idx",
+      "type": "text/plain",
+      "title": "Index file",
+      "description": "Contains information on each message within the GRIB2 file.",
+      "roles": [
+        "metadata",
+        "index"
+      ]
     }
-  }
+  },
+  "bbox": [
+    -180.125,
+    90.125,
+    179.875,
+    -90.125
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/timestamps/v1.0.0/schema.json"
+  ],
+  "collection": "noaa-gefs"
 }

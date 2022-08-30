@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://stac-extensions.github.io/forecast/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "title": "Forecast Extension",
+  "description": "STAC Forecast Extension for STAC Items and STAC Collections.",
   "oneOf": [
     {
       "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
@@ -26,7 +26,7 @@
                 {
                   "$comment": "Require fields here for Item Properties.",
                   "required": [
-                    "forecast:new_field"
+                    "forecast:reference_datetime"
                   ]
                 },
                 {
@@ -67,12 +67,6 @@
         {
           "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
           "allOf": [
-            {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "forecast:new_field"
-              ]
-            },
             {
               "$ref": "#/definitions/fields"
             }
@@ -160,42 +154,27 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["forecast:new_field"]},
-        {"required": ["forecast:xyz"]},
-        {"required": ["forecast:another_one"]}
+        {"required": ["forecast:reference_datetime"]},
+        {"required": ["forecast:horizon"]},
+        {"required": ["forecast:duration"]}
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "forecast:new_field": {
-          "type": "string"
+        "forecast:reference_datetime": {
+          "type": "string",
+          "format": "datetime"
         },
-        "forecast:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
+        "forecast:horizon": {
+          "type": "string",
+          "$comment": "suration format is not supported in draft 07, should we upgrade the schema to draft 2019-09?",
+          "format": "duration"
         },
-        "forecast:another_one": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
+        "forecast:duration": {
+          "type": "string",
+          "format": "duration"
         }
       },
       "patternProperties": {
