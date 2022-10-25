@@ -16,4 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-[Unreleased]: <https://github.com/stac-extensions/forecast/compare/v1.0.0...HEAD>
+[0.1.0]
+
+- First release
+
+[Unreleased]: <https://github.com/stac-extensions/forecast/compare/v0.1.0...HEAD>
+[0.1.0]: <https://github.com/stac-extensions/forecast/tree/v0.1.0>

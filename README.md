@@ -1,7 +1,7 @@
 # Forecast Extension Specification
 
 - **Title:** Forecast
-- **Identifier:** <https://stac-extensions.github.io/forecast/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/forecast/v0.1.0/schema.json>
 - **Field Name Prefix:** forecast
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -13,8 +13,6 @@ Some fields may also be applicable for climate forecast data, but it hasn't been
 
 - Examples:
   - [Item example for an specific time](examples/item.json): An example STAC Item for a forecast covering a specific instance in time
-  - [Item example for a period](examples/item-period.json): An example STAC Item for a forecast covering a period of time (todo)
-  - [Collection example](examples/collection.json): Shows the usage of the extension in a STAC Collection (todo)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
