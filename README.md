@@ -27,7 +27,7 @@ The fields in the table below can be used in these parts of STAC documents:
 
 | Field Name                   | Type   | Description |
 | ---------------------------- | ------ | ----------- |
-| forecast:reference_datetime  | string | **REQUIRED.** The *reference* datetime: i.e. predictions for times after this point occur in the future. Prdictions prior to this time represent 'hindcasts', predicting states that have already occurred. This must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| forecast:reference_datetime  | string | **REQUIRED.** The *reference* datetime: i.e. predictions for times after this point occur in the future. Predictions prior to this time represent 'hindcasts', predicting states that have already occurred. This must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
 | forecast:horizon             | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
 | forecast:duration            | string | If the forecast is not only for a specific instance in time but instead is for a certain period, you can specify the length here. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `PT0S` (0 seconds). |
 
@@ -53,7 +53,7 @@ You can use any file format, but here is a list of common media types for foreca
 | Type                    | Description |
 | ----------------------- | ----------- |
 | `application/wmo-GRIB2` | GRIB2 file (usually with the file extension `.grb2` or `.grib2`) |
-| `application/netcdf`    | NetCDF file (usually with the file extension `.nc`) |
+| `application/x-netcdf`  | NetCDF file (usually with the file extension `.nc`) |
 
 ## Contributing
 
