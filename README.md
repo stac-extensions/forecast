@@ -53,7 +53,7 @@ You can use any file format, but here is a list of common media types for foreca
 | Type                    | Description |
 | ----------------------- | ----------- |
 | `application/wmo-GRIB2` | GRIB2 file (usually with the file extension `.grb2` or `.grib2`) |
-| `application/netcdf`    | NetCDF file (usually with the file extension `.nc`) |
+| `application/x-netcdf`    | NetCDF file (usually with the file extension `.nc`) |
 
 ## Contributing
 
