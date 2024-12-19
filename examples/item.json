@@ -7,6 +7,8 @@
     "grib:discipline": "meteorological",
     "forecast:reference_datetime": "2022-08-12T00:00:00Z",
     "forecast:horizon": "PT0H",
+    "forecast:parameter": "air_temperature",
+    "forecast:perturbed": false,
     "processing:facility": "US-NCEP",
     "proj:epsg": null,
     "proj:projjson": {

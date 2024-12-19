@@ -123,7 +123,7 @@
           }
         },
         {
-          "$comment": "This is the schema for the fields in Summaries. By default, only checks the existance of the properties, but not the schema of the summaries.",
+          "$comment": "This is the schema for the fields in Summaries. By default, only checks the existence of the properties, but not the schema of the summaries.",
           "required": [
             "summaries"
           ],
@@ -152,7 +152,7 @@
       }
     },
     "require_any_field": {
-      "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
+      "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
       "anyOf": [
         {"required": ["forecast:reference_datetime"]},
         {"required": ["forecast:horizon"]},
@@ -169,12 +169,19 @@
         },
         "forecast:horizon": {
           "type": "string",
-          "$comment": "suration format is not supported in draft 07, should we upgrade the schema to draft 2019-09?",
+          "$comment": "duration format is not supported in draft 07, should we upgrade the schema to draft 2019-09?",
           "format": "duration"
         },
         "forecast:duration": {
           "type": "string",
           "format": "duration"
+        },
+        "forecast:parameter": {
+          "type": "string",
+          "$comment": "we cannot make a strict validation on the value but it should be from the cf standard names list https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html"
+        },
+        "forecast:perturbed": {
+          "type": "boolean"
         }
       },
       "patternProperties": {
