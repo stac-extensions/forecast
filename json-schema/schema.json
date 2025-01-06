@@ -156,7 +156,9 @@
       "anyOf": [
         {"required": ["forecast:reference_datetime"]},
         {"required": ["forecast:horizon"]},
-        {"required": ["forecast:duration"]}
+        {"required": ["forecast:duration"]},
+        {"required": ["forecast:variable"]},
+        {"required": ["forecast:perturbed"]}
       ]
     },
     "fields": {
@@ -176,7 +178,7 @@
           "type": "string",
           "format": "duration"
         },
-        "forecast:parameter": {
+        "forecast:variable": {
           "type": "string",
           "$comment": "we cannot make a strict validation on the value but it should be from the cf standard names list https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html"
         },
