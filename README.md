@@ -32,6 +32,8 @@ The fields in the table below can be used in these parts of STAC documents:
 | forecast:duration           | string | If the forecast is not only for a specific instance in time but instead is for a certain period, you can specify the length here. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `PT0S` (0 seconds). |
 | forecast:variable           | string | Name of the model variable that corresponds to the data. The variables should correspond to the [CF Standard Names](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html), e.g. `air_temperature` for the air temperature. |
 | forecast:perturbed          | boolean | Denotes whether the data corresponds to the control run (`false`) or perturbed runs (`true`). The property needs to be specified in both cases as no default value is specified and as such the meaning is "unknown" in case it's missing. |
+| forecast:member             | integer | Specifies the member (sample number) of perturbed runs, e.g. `1`. |
+| forecast:level              | integer | Index of the vertical level of the height coordinate system used in the forecast model, e.g. `4`. |
 
 `forecast:variable` is primarily intended for search and as such can only be set to a single value,
 either on the Asset level or on the Item property level. If this field is insufficient for your usecase,
