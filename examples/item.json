@@ -1,14 +1,16 @@
 {
   "type": "Feature",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "id": "1660262400-gefs.chem.t00z.a2d_0p25.f000",
   "properties": {
     "expires": "2022-08-12T00:00:00Z",
     "grib:discipline": "meteorological",
     "forecast:reference_datetime": "2022-08-12T00:00:00Z",
     "forecast:horizon": "PT0H",
+    "forecast:variable": "air_temperature",
+    "forecast:perturbed": false,
     "processing:facility": "US-NCEP",
-    "proj:epsg": null,
+    "proj:code": null,
     "proj:projjson": {
       "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
       "type": "GeographicCRS",
@@ -94,7 +96,7 @@
       "type": "application/wmo-GRIB2",
       "title": "GRIB2 file",
       "description": "The forecast data. Subsets of the data can be loaded using information from the associated index file.",
-      "raster:bands": [
+      "bands": [
         {
           "data_type": "float64",
           "statistics": {
@@ -489,8 +491,7 @@
     -90.125
   ],
   "stac_extensions": [
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
     "https://stac-extensions.github.io/timestamps/v1.0.0/schema.json"
   ],
   "collection": "noaa-gefs"

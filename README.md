@@ -1,7 +1,7 @@
 # Forecast Extension Specification
 
 - **Title:** Forecast
-- **Identifier:** <https://stac-extensions.github.io/forecast/v0.1.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/forecast/v0.2.0/schema.json>
 - **Field Name Prefix:** forecast
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -25,13 +25,19 @@ The fields in the table below can be used in these parts of STAC documents:
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name                   | Type   | Description |
-| ---------------------------- | ------ | ----------- |
-| forecast:reference_datetime  | string | **REQUIRED.** The *reference* datetime: i.e. predictions for times after this point occur in the future. Predictions prior to this time represent 'hindcasts', predicting states that have already occurred. This must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
-| forecast:horizon             | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
-| forecast:duration            | string | If the forecast is not only for a specific instance in time but instead is for a certain period, you can specify the length here. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `PT0S` (0 seconds). |
-| forecast:member              | integer | Specifies the member (sample number) of perturbed runs, e.g. `1`. |
-| forecast:level               | integer | Index of the vertical level of the height coordinate system used in the forecast model, e.g. `4`. |
+| Field Name                  | Type   | Description |
+| --------------------------- | ------ | ----------- |
+| forecast:reference_datetime | string | **REQUIRED.** The *reference* datetime: i.e. predictions for times after this point occur in the future. Predictions prior to this time represent 'hindcasts', predicting states that have already occurred. This must be in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| forecast:horizon            | string | The time between the reference datetime and the forecast datetime. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT6H` for a 6-hour forecast. |
+| forecast:duration           | string | If the forecast is not only for a specific instance in time but instead is for a certain period, you can specify the length here. Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations), e.g. `PT3H` for a 3-hour accumulation. If not given, assumes that the forecast is for an instance in time as if this was set to `PT0S` (0 seconds). |
+| forecast:variable           | string | Name of the model variable that corresponds to the data. The variables should correspond to the [CF Standard Names](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html), e.g. `air_temperature` for the air temperature. |
+| forecast:perturbed          | boolean | Denotes whether the data corresponds to the control run (`false`) or perturbed runs (`true`). The property needs to be specified in both cases as no default value is specified and as such the meaning is "unknown" in case it's missing. |
+| forecast:member             | integer | Specifies the member (sample number) of perturbed runs, e.g. `1`. |
+| forecast:level              | integer | Index of the vertical level of the height coordinate system used in the forecast model, e.g. `4`. |
+
+`forecast:variable` is primarily intended for search and as such can only be set to a single value,
+either on the Asset level or on the Item property level. If this field is insufficient for your usecase,
+please use the more advanced [CF extension](https://github.com/stac-extensions/cf) instead.
 
 ### Additional Fields from other extensions
 
